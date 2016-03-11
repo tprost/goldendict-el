@@ -2,7 +2,8 @@
   "query goldendict popup thing"
   (interactive "r")
   (if (use-region-p)
-      (shell-command
+      (start-process-shell-command
+       "goldendict-popup" nil
        (concat "goldendict " (buffer-substring region-beginning region-end)))
     (interactive))
   (message "region not active"))
